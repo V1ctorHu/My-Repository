@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultados de Roomies</title>
+    <!-- Materialize CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="center-align">Resultados de Roomies para {{ name }}</h1>
+      <h2 class="center-align">Posibles roomies compatibles:</h2>
+      <ul class="collection">
+        {% for _, row in roomies.iterrows() %}
+        <li class="collection-item">
+          {{ row['nombre'] }} - Compatibilidad: {{ row['compatibility'] }}
+        </li>
+        {% endfor %}
+      </ul>
+      <h2 class="center-align">Gráfica de Compatibilidad:</h2>
+      <div class="center-align">
+        <img
+          src="/static/compatibility.png"
+          class="responsive-img"
+          alt="Gráfica de Compatibilidad"
+        />
+      </div>
+      <div class="center-align">
+        <a href="/" class="btn waves-effect waves-light"
+          >Volver a la Selección</a
+        >
+      </div>
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
